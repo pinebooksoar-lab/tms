@@ -1,0 +1,35 @@
+body{margin:0;background:#0E0B0A}
+a{color:#E3B45A}a:hover{color:#F3D08A}
+html{scroll-behavior:smooth}
+@keyframes tms-rise{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+@keyframes tms-logo-in{from{opacity:0;transform:scale(.86);filter:blur(6px)}to{opacity:1;transform:none;filter:none}}
+@keyframes tms-sweep{0%,55%{background-position:120% 0}85%,100%{background-position:-20% 0}}
+@keyframes tms-shine{0%,60%{background-position:150% 0}100%{background-position:-50% 0}}
+@keyframes tms-beam-l{0%,100%{transform:rotate(16deg)}50%{transform:rotate(4deg)}}
+@keyframes tms-beam-r{0%,100%{transform:rotate(-16deg)}50%{transform:rotate(-5deg)}}
+@keyframes tms-marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.tms-rise{animation:tms-rise 1s cubic-bezier(.2,.7,.2,1) both}
+.tms-d1{animation-delay:.15s}.tms-d2{animation-delay:.35s}.tms-d3{animation-delay:.55s}.tms-d4{animation-delay:.75s}
+.tms-logo{position:relative;display:inline-block;animation:tms-logo-in 1.4s cubic-bezier(.2,.7,.2,1) both}
+.tms-logo::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(105deg,transparent 38%,rgba(255,246,220,.95) 50%,transparent 62%);background-size:300% 100%;-webkit-mask:url(../images/logo.png) center/contain no-repeat;mask:url(../images/logo.png) center/contain no-repeat;mix-blend-mode:screen;animation:tms-sweep 5s ease-in-out 1.2s infinite}
+.tms-shine{background-image:linear-gradient(110deg,currentColor 42%,#FFF4D6 50%,currentColor 58%);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:tms-shine 7s ease-in-out 2s infinite}
+.tms-beam{position:absolute;top:-80px;width:440px;height:140%;pointer-events:none;background:conic-gradient(from 172deg at 50% 0,rgba(255,226,160,0) 0deg,rgba(255,226,160,.22) 5deg,rgba(255,226,160,.22) 11deg,rgba(255,226,160,0) 16deg);-webkit-mask-image:linear-gradient(180deg,#000 0%,rgba(0,0,0,.5) 50%,transparent 85%);mask-image:linear-gradient(180deg,#000 0%,rgba(0,0,0,.5) 50%,transparent 85%);mix-blend-mode:screen;will-change:transform}
+.tms-beam-l{left:8%;transform-origin:50% 0;animation:tms-beam-l 14s ease-in-out infinite}
+.tms-beam-r{right:8%;transform-origin:50% 0;animation:tms-beam-r 17s ease-in-out infinite}
+.tms-marquee{overflow:hidden;padding:0 0 4px}
+.tms-track{display:flex;gap:4px;width:max-content;animation:tms-marquee 70s linear infinite}
+.tms-marquee:hover .tms-track{animation-play-state:paused}
+.tms-track img{width:180px;aspect-ratio:2/3;object-fit:cover;display:block}
+.tms-js [data-reveal]{opacity:0;transform:translateY(26px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.7,.2,1)}
+.tms-js [data-reveal].is-in{opacity:1;transform:none}
+.tms-cast>[data-reveal]:nth-child(4n+2){transition-delay:.08s}.tms-cast>[data-reveal]:nth-child(4n+3){transition-delay:.16s}.tms-cast>[data-reveal]:nth-child(4n+4){transition-delay:.24s}
+.tms-velvet{background:#0E0B0A}
+.tms-valance{display:none!important}
+.tms-valance{position:absolute;left:0;right:0;top:0;height:60px;pointer-events:none;background:radial-gradient(ellipse 60px 60px at 60px 0,#2E0710 97%,transparent 100%) 0 0/120px 60px repeat-x;filter:drop-shadow(0 6px 10px rgba(0,0,0,.55))}
+@keyframes tms-open-l{0%,15%{transform:translateX(0)}100%{transform:translateX(-102%)}}
+@keyframes tms-open-r{0%,15%{transform:translateX(0)}100%{transform:translateX(102%)}}
+.tms-curtain{position:absolute;top:0;bottom:0;width:50.5%;z-index:3;pointer-events:none;background:linear-gradient(180deg,rgba(0,0,0,.35),transparent 30%,rgba(0,0,0,.4)),repeating-linear-gradient(90deg,#3A0912 0,#5E1121 22px,#86192E 40px,#6A1324 54px,#430B16 72px,#300710 90px);box-shadow:0 0 40px rgba(0,0,0,.7);will-change:transform}
+.tms-curtain-l{left:0;animation:tms-open-l 1.8s cubic-bezier(.6,0,.2,1) .2s both}
+.tms-curtain-r{right:0;animation:tms-open-r 1.8s cubic-bezier(.6,0,.2,1) .2s both}
+@media (max-width:640px){.tms-track img{width:120px}}
+@media (prefers-reduced-motion:reduce){.tms-curtain{display:none}.tms-rise,.tms-logo,.tms-logo::after,.tms-shine,.tms-beam,.tms-track{animation:none!important}.tms-js [data-reveal]{opacity:1;transform:none;transition:none}}
